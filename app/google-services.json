@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "119062618832",
+    "project_id": "freedom-project-2021-7c106",
+    "storage_bucket": "freedom-project-2021-7c106.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:119062618832:android:61c350d770363bf9d874d5",
+        "android_client_info": {
+          "package_name": "com.jianpingandy.freedomproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "119062618832-14crumr13c7nca68g606uoq4ami1nvoi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8pk9mWq1y7XTJPpNS9a8OomikOvKJZ5k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "119062618832-14crumr13c7nca68g606uoq4ami1nvoi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
