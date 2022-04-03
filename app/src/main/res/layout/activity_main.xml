@@ -53,7 +53,7 @@
         android:id="@+id/login"
         android:layout_below="@+id/password"
         android:text="Login"
-        android:background="#0000FF"
+        android:backgroundTint="#0000FF"
         android:layout_centerHorizontal="true"
         android:layout_margin="20dp"
         />
@@ -63,7 +63,7 @@
         android:id="@+id/create_account"
         android:text="Create Account"
         android:textColor="@color/white"
-        android:background="#0000FF"
+        android:backgroundTint="#0000FF"
         android:layout_below="@+id/login"
         android:layout_centerHorizontal="true"
         android:layout_margin="20dp"

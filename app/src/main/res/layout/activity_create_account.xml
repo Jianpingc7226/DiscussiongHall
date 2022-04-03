@@ -24,33 +24,37 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/title"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:hint="Username"
         android:minHeight="48dp"
         android:textColor="#80FF00"
-        android:textColorHint="@color/white"
-        android:layout_margin="20dp"/>
+        android:textColorHint="@color/white" />
 
     <EditText
+        android:id="@+id/newPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/newPassword"
         android:layout_below="@+id/newUsername"
-        android:layout_margin="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:hint="Password"
-        android:textColorHint="@color/white"
         android:textColor="#80FF00"
-        />
+        android:textColorHint="@color/white" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/makeaccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/makeaccount"
-        android:text="Create Account"
-        android:textColor="@color/white"
         android:layout_below="@+id/newPassword"
         android:layout_centerHorizontal="true"
         android:padding="10dp"
-        />
+        android:text="Create Account"
+        android:textColor="@color/white" />
 
     <com.google.android.material.button.MaterialButton
         android:layout_width="wrap_content"

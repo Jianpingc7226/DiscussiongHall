@@ -9,8 +9,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
         MaterialButton loginbtn = (MaterialButton) findViewById(R.id.login);
         MaterialButton createAccount = (MaterialButton) findViewById(R.id.create_account);
-
+        mAuth = FirebaseAuth.getInstance();
         //Login Page
         //username && password == "admin" => Go to MainActivity2
         loginbtn.setOnClickListener(new View.OnClickListener() {
@@ -47,5 +50,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent1);
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser user = mAuth.getCurrentUser();
+        if(user==null){
+            startActivity(new Intent(MainActivity.this,  MainActivity.class));
+        }
     }
 }
