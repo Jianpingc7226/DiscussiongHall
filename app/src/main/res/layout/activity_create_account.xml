@@ -20,13 +20,46 @@
         />
 
     <EditText
-        android:id="@+id/fname"
+        android:id="@+id/newUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/title"
-        android:hint="FirstName"
+        android:hint="Username"
         android:minHeight="48dp"
-        android:textColor="#7F00FF"
-        android:textColorHint="@color/white" />
+        android:textColor="#80FF00"
+        android:textColorHint="@color/white"
+        android:layout_margin="20dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/newPassword"
+        android:layout_below="@+id/newUsername"
+        android:layout_margin="20dp"
+        android:hint="Password"
+        android:textColorHint="@color/white"
+        android:textColor="#80FF00"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/makeaccount"
+        android:text="Create Account"
+        android:textColor="@color/white"
+        android:layout_below="@+id/newPassword"
+        android:layout_centerHorizontal="true"
+        android:padding="10dp"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/returnHome"
+        android:layout_below="@+id/makeaccount"
+        android:text="Login Page"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="100dp"
+        />
 
 </RelativeLayout>
