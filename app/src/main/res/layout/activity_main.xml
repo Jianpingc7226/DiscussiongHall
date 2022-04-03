@@ -57,5 +57,16 @@
         android:layout_centerHorizontal="true"
         android:layout_margin="20dp"
         />
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/create_account"
+        android:text="Create Account"
+        android:textColor="@color/white"
+        android:backgroundTint="#0000FF"
+        android:layout_below="@+id/login"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        />
 
 </RelativeLayout>

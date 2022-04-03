@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FreedomProject">
         <activity
-            android:name=".MainActivity2"
+            android:name=".CreateAccount"
+            android:exported="false" />
+        <activity
+            android:name=".Main_Page"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

@@ -21,19 +21,30 @@ public class MainActivity extends AppCompatActivity {
         TextView password = (TextView) findViewById(R.id.password);
 
         MaterialButton loginbtn = (MaterialButton) findViewById(R.id.login);
+        MaterialButton createAccount = (MaterialButton) findViewById(R.id.create_account);
 
+        //Login Page
         //username && password == "admin" => Go to MainActivity2
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(username.getText().toString().equals("admin") && password.getText().toString().equals("admin")){
                     Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getApplicationContext(),MainActivity2.class);
+                    Intent intent = new Intent(getApplicationContext(), Main_Page.class);
                     startActivity(intent);
                 }else{
                     Toast.makeText(MainActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
                 }
 
+            }
+        });
+
+        //Create an account Page
+        createAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(getApplicationContext(),CreateAccount.class);
+                startActivity(intent1);
             }
         });
     }
