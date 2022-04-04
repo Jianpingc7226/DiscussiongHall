@@ -20,36 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView username = (TextView) findViewById(R.id.username);
-        TextView password = (TextView) findViewById(R.id.password);
-
-        MaterialButton loginbtn = (MaterialButton) findViewById(R.id.login);
-        MaterialButton createAccount = (MaterialButton) findViewById(R.id.create_account);
         mAuth = FirebaseAuth.getInstance();
-        //Login Page
-        //username && password == "admin" => Go to MainActivity2
-        loginbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(username.getText().toString().equals("admin") && password.getText().toString().equals("admin")){
-                    Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getApplicationContext(), Main_Page.class);
-                    startActivity(intent);
-                }else{
-                    Toast.makeText(MainActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
-                }
-
-            }
-        });
-
-        //Create an account Page
-        createAccount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent1 = new Intent(getApplicationContext(),CreateAccount.class);
-                startActivity(intent1);
-            }
-        });
     }
 
     @Override
@@ -57,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         FirebaseUser user = mAuth.getCurrentUser();
         if(user==null){
-            startActivity(new Intent(MainActivity.this,  MainActivity.class));
+            startActivity(new Intent(MainActivity.this,  LoginPage.class));
         }
     }
 }
