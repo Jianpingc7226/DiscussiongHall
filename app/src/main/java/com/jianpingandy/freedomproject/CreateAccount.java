@@ -24,23 +24,21 @@ public class CreateAccount extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
+
         MaterialButton returnHome = (MaterialButton) findViewById(R.id.returnHome);
         MaterialButton login = (MaterialButton) findViewById(R.id.makeaccount);
         mAuth = FirebaseAuth.getInstance();
 
-        returnHome.setOnClickListener(view -> {
+        login.setOnClickListener(view -> {
             createUser();
         });
 
 
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent login = new Intent(getApplicationContext(),Main_Page.class);
-                startActivity(login);
-            }
+        returnHome.setOnClickListener(view ->{
+                startActivity(new Intent(CreateAccount.this, LoginPage.class));
         });
     }
+
     private void createUser(){
         String email = newUsername.getText().toString();
         String password = newPassword.getText().toString();
