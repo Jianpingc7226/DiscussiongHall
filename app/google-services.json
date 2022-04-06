@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "119062618832",
-    "project_id": "freedom-project-2021-7c106",
-    "storage_bucket": "freedom-project-2021-7c106.appspot.com"
+    "project_number": "472464932127",
+    "project_id": "discussing-hall",
+    "storage_bucket": "discussing-hall.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:119062618832:android:61c350d770363bf9d874d5",
+        "mobilesdk_app_id": "1:472464932127:android:34581b943fd31d85f8842a",
         "android_client_info": {
-          "package_name": "com.jianpingandy.freedomproject"
+          "package_name": "com.jianpingandy.myapplication"
         }
       },
       "oauth_client": [
         {
-          "client_id": "119062618832-14crumr13c7nca68g606uoq4ami1nvoi.apps.googleusercontent.com",
+          "client_id": "472464932127-aaj48upb9kmfddsj22rvbsacgkl3ooe5.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA8pk9mWq1y7XTJPpNS9a8OomikOvKJZ5k"
+          "current_key": "AIzaSyCCybOl0mDFMDidn3LZmCIagNP930pndIQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "119062618832-14crumr13c7nca68g606uoq4ami1nvoi.apps.googleusercontent.com",
+              "client_id": "472464932127-aaj48upb9kmfddsj22rvbsacgkl3ooe5.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
