@@ -19,28 +19,27 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginPage extends AppCompatActivity {
     FirebaseAuth mAuth;
-    EditText loginusername = (EditText) findViewById(R.id.username);
-    EditText loginpassword = (EditText) findViewById(R.id.password);
-    MaterialButton loginbtn = (MaterialButton) findViewById(R.id.login);
-    MaterialButton createAccountbtn = (MaterialButton) findViewById(R.id.create_account);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
         mAuth = FirebaseAuth.getInstance();
-        //Login Page
-        //username && password == "admin" => Go to MainActivity2
+        MaterialButton loginbtn = (MaterialButton) findViewById(R.id.login);
+        MaterialButton createAccountbtn = (MaterialButton) findViewById(R.id.create_account);
+//        Login Page
+//        username && password == "admin" => Go to MainActivity2
         loginbtn.setOnClickListener(view->{
             loginUser();
         });
-
         createAccountbtn.setOnClickListener(view->{
             startActivity(new Intent(LoginPage.this, CreateAccount.class));
         });
     }
 
     private void loginUser(){
+        EditText loginusername = (EditText) findViewById(R.id.username);
+        EditText loginpassword = (EditText) findViewById(R.id.password);
         String email = loginusername.getText().toString();
         String password = loginpassword.getText().toString();
 
@@ -64,5 +63,4 @@ public class LoginPage extends AppCompatActivity {
             });
         }
     }
-
 }

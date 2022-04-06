@@ -18,8 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class CreateAccount extends AppCompatActivity {
     FirebaseAuth mAuth;
-    EditText newUsername = findViewById(R.id.newUsername);
-    EditText newPassword = findViewById(R.id.newPassword);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +39,8 @@ public class CreateAccount extends AppCompatActivity {
     }
 
     private void createUser(){
+        EditText newUsername = findViewById(R.id.newUsername);
+        EditText newPassword = findViewById(R.id.newPassword);
         String email = newUsername.getText().toString();
         String password = newPassword.getText().toString();
 
