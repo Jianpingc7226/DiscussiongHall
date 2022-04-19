@@ -10,7 +10,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.FreedomProject">
+        android:theme="@style/Theme.FreedomProject"
+        android:usesCleartextTraffic="true">
+
         <activity
             android:name=".LoginPage"
             android:exported="false" />

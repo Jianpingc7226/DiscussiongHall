@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:472464932127:android:34581b943fd31d85f8842a",
+        "mobilesdk_app_id": "1:472464932127:android:e576ee41de2f3707f8842a",
         "android_client_info": {
-          "package_name": "com.jianpingandy.myapplication"
+          "package_name": "com.jianpingandy.freedomproject"
         }
       },
       "oauth_client": [
