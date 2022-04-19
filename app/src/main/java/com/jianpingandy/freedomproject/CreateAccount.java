@@ -77,7 +77,7 @@ public class CreateAccount extends AppCompatActivity {
 
 
     public void showMainActivity(){
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, Main_Page.class);
         startActivity(intent);
         finish();
     }
