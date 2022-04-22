@@ -8,24 +8,48 @@
     tools:context=".Main_Page">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/title"
-        android:text="@string/app_name"
-        android:textSize="30dp"
-        android:textColor="@color/white"
-        android:layout_margin="50dp"
-        android:gravity="center"
-        />
-
-    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/returnHome"
-        android:text="Home"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="50dp"
+        android:gravity="center"
+        android:text="Discussing Hall"
         android:textColor="@color/white"
-        android:layout_centerHorizontal="true"
+        android:textSize="50dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/personalActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="My Comments"
+        android:textSize="30dp"
+        android:textColor="#FFD700"
         android:layout_below="@+id/title"
-        android:layout_margin="150dp"
+        android:layout_centerHorizontal="true"
         />
+
+    <com.google.android.material.button.MaterialButton
+        android:id ="@+id/discussionHall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Discussion Hall"
+        android:textSize="30dp"
+        android:textColor="#6ACCBC"
+        android:layout_below="@+id/personalActivity"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="50dp"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/discussionHall"
+        android:layout_centerHorizontal="true"
+        android:text="Profile"
+        android:textColor="@color/white"
+        android:textSize="25dp" />
 </RelativeLayout>

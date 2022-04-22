@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/userprofile_background"
+    tools:context=".UserProfile">
+
+    <TextView
+        android:id="@+id/title1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="30dp"
+        android:text="User Profile"
+        android:textColor="#4287f5"
+        android:textSize="50sp" />
+
+    <TextView
+        android:id="@+id/userInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title1"
+        android:layout_margin="30dp"
+        android:text="Username"
+        android:textColor="#f0a70a"
+        android:textSize="25sp" />
+
+    <EditText
+        android:id="@+id/newUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title1"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="30dp"
+        android:layout_toRightOf="@+id/userInfo"
+        android:hint="Change Username"
+        android:minHeight="48dp"
+        android:padding="8dp"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/passInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/userInfo"
+        android:layout_margin="30dp"
+        android:text="Password"
+        android:textColor="#f01d0a"
+        android:textSize="25sp" />
+
+    <EditText
+        android:id="@+id/newPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/newUser"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="30dp"
+        android:layout_toRightOf="@+id/passInfo"
+        android:hint="Change Password"
+        android:minHeight="48dp"
+        android:padding="8dp"
+        android:textColor="@color/white" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/z1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/passInfo"
+        android:layout_centerHorizontal="true"
+        android:text="home" />
+
+</RelativeLayout>

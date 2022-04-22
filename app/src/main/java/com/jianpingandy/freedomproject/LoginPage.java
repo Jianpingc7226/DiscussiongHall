@@ -55,7 +55,7 @@ public class LoginPage extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()){
                         Toast.makeText(LoginPage.this, "User Logged in successfully", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(LoginPage.this,Main_Page.class));
+                        startActivity(new Intent(getApplicationContext(),Main_Page.class));
                     }else{
                         Toast.makeText(LoginPage.this, "Log in Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }

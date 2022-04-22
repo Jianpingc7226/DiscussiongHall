@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
 import com.google.android.material.button.MaterialButton;
 
@@ -15,14 +14,20 @@ public class Main_Page extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_page);
 
-        MaterialButton loginpage = (MaterialButton) findViewById(R.id.returnHome);
+        MaterialButton profilebtn = (MaterialButton) findViewById(R.id.profile);
+        MaterialButton pastActivity = (MaterialButton) findViewById(R.id.personalActivity);
+        MaterialButton discussingHallButton = (MaterialButton) findViewById(R.id.discussionHall);
 
-        loginpage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent loginPage = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(loginPage);
-            }
+        profilebtn.setOnClickListener(view->{
+                startActivity(new Intent(getApplicationContext(), UserProfile.class));
+        });
+
+        pastActivity.setOnClickListener(view->{
+                startActivity(new Intent(getApplicationContext(),PastActivities.class));
+        });
+
+        discussingHallButton.setOnClickListener(view->{
+            startActivity(new Intent(getApplicationContext(),DiscussingHall.class));
         });
     }
 }
