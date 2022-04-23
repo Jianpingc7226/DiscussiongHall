@@ -24,7 +24,7 @@
         android:layout_below="@id/title1"
         android:layout_margin="30dp"
         android:text="Username"
-        android:textColor="#f0a70a"
+        android:textColor="#de3e09"
         android:textSize="25sp" />
 
     <EditText
@@ -41,39 +41,39 @@
         android:hint="New Username"
         android:minHeight="48dp"
         android:padding="8dp"
-        android:textColor="@color/white" />
+        android:textColor="#ff8c00" />
 
     <TextView
-        android:id="@+id/passInfo"
+        android:id="@+id/schoolInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/userInfo"
         android:layout_margin="30dp"
-        android:text="Password"
+        android:text="School"
         android:textColor="#f01d0a"
         android:textSize="25sp" />
 
     <EditText
-        android:id="@+id/newPass"
+        android:id="@+id/newSchoolInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/newUser"
         android:layout_marginStart="0dp"
-        android:layout_marginLeft="32dp"
+        android:layout_marginLeft="40dp"
         android:layout_marginTop="18dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="30dp"
-        android:layout_toRightOf="@+id/passInfo"
-        android:hint="New Password"
+        android:layout_toRightOf="@+id/schoolInfo"
+        android:hint="New School"
         android:minHeight="48dp"
         android:padding="8dp"
-        android:textColor="@color/white" />
+        android:textColor="#ff8c00"/>
 
     <Button
         android:id="@+id/submitBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/newPass"
+        android:layout_below="@id/newSchoolInfo"
         android:layout_centerHorizontal="true"
         android:layout_margin="50dp"
         android:text="Submit" />
