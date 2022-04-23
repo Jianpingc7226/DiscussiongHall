@@ -71,6 +71,7 @@ public class CreateAccount extends AppCompatActivity {
                         user.put("email",email);
                         user.put("password",password);
                         user.put("username","visitor");
+                        user.put("school","");
                         Toast.makeText(CreateAccount.this, "User registered successfully", Toast.LENGTH_SHORT).show();
                         db.collection("User").document(email).set(user);
                         startActivity(new Intent(CreateAccount.this,Main_Page.class));
