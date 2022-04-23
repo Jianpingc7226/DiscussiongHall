@@ -42,6 +42,7 @@ public class ProfileFragment extends Fragment {
         EditText userName = (EditText)view.findViewById(R.id.newUser);
         EditText school = (EditText)view.findViewById(R.id.newSchoolInfo);
         Button submit = (Button)view.findViewById(R.id.submitBtn);
+        Button Logout = (Button)view.findViewById(R.id.logOutBtn);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         DocumentReference docRef = db.collection("User").document(user.getEmail());
@@ -66,6 +67,14 @@ public class ProfileFragment extends Fragment {
                         .update("username",userName.getText().toString());
                 updatedInformation
                         .update("school",school.getText().toString());
+            }
+        });
+
+        Logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                //please add a line to start loginactivity
             }
         });
 
