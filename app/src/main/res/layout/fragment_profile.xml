@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/userprofile_background"
-    tools:context=".UserProfile">
+    tools:context=".ProfileFragment">
 
     <TextView
         android:id="@+id/title1"
@@ -38,7 +38,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="30dp"
         android:layout_toRightOf="@+id/userInfo"
-        android:hint="Change Username"
+        android:hint="New Username"
         android:minHeight="48dp"
         android:padding="8dp"
         android:textColor="@color/white" />
@@ -64,17 +64,9 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="30dp"
         android:layout_toRightOf="@+id/passInfo"
-        android:hint="Change Password"
+        android:hint="New Password"
         android:minHeight="48dp"
         android:padding="8dp"
         android:textColor="@color/white" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/z1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/passInfo"
-        android:layout_centerHorizontal="true"
-        android:text="home" />
 
 </RelativeLayout>

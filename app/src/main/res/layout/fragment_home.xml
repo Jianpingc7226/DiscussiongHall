@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".HomeFragment"
+    android:id="@+id/homepageLayout">
+
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.5"
+        android:scaleType="fitXY"
+        android:src="@drawable/discussing_hall_background" />
+
+    <Button
+        android:id="@+id/createPostBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="Create Post" />
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:id="@+id/postLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/discussingHallTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="30dp"
+                android:text="Discussing Hall"
+                android:textColor="#fc0330"
+                android:textSize="50sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/discussingHallTitle"
+                android:background="#808080"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:hint="WRITE WHAT YOU WANT TO POST"
+                android:minHeight="48dp"
+                android:textColor="@color/white"
+                android:textColorHint="#D3D3D3"
+                android:visibility="invisible"/>
+
+            <ImageView
+                android:id="@+id/check_mark"
+                android:layout_width="40sp"
+                android:layout_height="40sp"
+                android:layout_below="@id/input"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/confirm_to_post_icon"
+                android:visibility="invisible"/>
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
+

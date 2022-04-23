@@ -4,52 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background2"
     tools:context=".Main_Page">
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="50dp"
-        android:gravity="center"
-        android:text="Discussing Hall"
-        android:textColor="@color/white"
-        android:textSize="50dp" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/personalActivity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="My Comments"
-        android:textSize="30dp"
-        android:textColor="#FFD700"
-        android:layout_below="@+id/title"
-        android:layout_centerHorizontal="true"
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/container"
+        android:layout_above="@+id/bottomNavigationBar"
         />
 
-    <com.google.android.material.button.MaterialButton
-        android:id ="@+id/discussionHall"
-        android:layout_width="wrap_content"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Discussion Hall"
-        android:textSize="30dp"
-        android:textColor="#6ACCBC"
-        android:layout_below="@+id/personalActivity"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="50dp"
+        android:id="@+id/bottomNavigationBar"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/navigation_menu"
         />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/discussionHall"
-        android:layout_centerHorizontal="true"
-        android:text="Profile"
-        android:textColor="@color/white"
-        android:textSize="25dp" />
 </RelativeLayout>
