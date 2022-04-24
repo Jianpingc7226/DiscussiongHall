@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -31,12 +32,23 @@ public class HomeFragment extends Fragment {
         createPostBtn = (Button) view.findViewById(R.id.createPostBtn);
         EditText input = (EditText) view.findViewById(R.id.input);
         ImageView check = view.findViewById(R.id.check_mark);
+        TextView post = view.findViewById(R.id.Post);
+        ImageView reply = view.findViewById(R.id.replyBtn);
 
         createPostBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 input.setVisibility(View.VISIBLE);
                 check.setVisibility(View.VISIBLE);
+            }
+        });
+
+        check.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                post.setText(input.getText().toString());
+                post.setVisibility(View.VISIBLE);
+                reply.setVisibility(View.VISIBLE);
             }
         });
 

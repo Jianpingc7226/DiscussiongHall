@@ -70,6 +70,25 @@
                 android:src="@drawable/confirm_to_post_icon"
                 android:visibility="invisible"/>
 
+            <TextView
+                android:id="@+id/Post"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_below="@id/discussingHallTitle"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/background1"
+                android:visibility="invisible"
+                />
+
+            <ImageView
+                android:id="@+id/replyBtn"
+                android:layout_width="40sp"
+                android:layout_height="40sp"
+                android:layout_below="@id/Post"
+                android:src="@drawable/reply_icon"
+                android:visibility="invisible"
+                android:layout_centerHorizontal="true"/>
+
         </RelativeLayout>
     </ScrollView>
 </RelativeLayout>
