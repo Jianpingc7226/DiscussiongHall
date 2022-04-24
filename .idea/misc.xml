@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/alanc/AndroidStudioProjects/FreedomProject/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.278" />
+        <entry key="..\:/Users/alanc/AndroidStudioProjects/FreedomProject/app/src/main/res/drawable/confirm_to_post_icon.xml" value="0.278" />
+        <entry key="..\:/Users/alanc/AndroidStudioProjects/FreedomProject/app/src/main/res/drawable/home_icon.xml" value="0.278" />
+        <entry key="..\:/Users/alanc/AndroidStudioProjects/FreedomProject/app/src/main/res/drawable/ic_baseline_error_24.xml" value="0.278" />
+        <entry key="..\:/Users/alanc/AndroidStudioProjects/FreedomProject/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.278" />
+        <entry key="..\:/Users/alanc/AndroidStudioProjects/FreedomProject/app/src/main/res/drawable/ic_launcher_background.xml" value="0.278" />
+        <entry key="..\:/Users/alanc/AndroidStudioProjects/FreedomProject/app/src/main/res/drawable/reply_icon.xml" value="0.278" />
         <entry key="..\:/Users/alanc/AndroidStudioProjects/FreedomProject/app/src/main/res/layout/activity_create_account.xml" value="0.33" />
         <entry key="..\:/Users/alanc/AndroidStudioProjects/FreedomProject/app/src/main/res/layout/activity_login_page.xml" value="0.17603850050658562" />
         <entry key="..\:/Users/alanc/AndroidStudioProjects/FreedomProject/app/src/main/res/layout/activity_main.xml" value="0.1703125" />
@@ -10,10 +17,10 @@
         <entry key="..\:/Users/alanc/AndroidStudioProjects/FreedomProject/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
         <entry key="..\:/Users/alanc/AndroidStudioProjects/FreedomProject/app/src/main/res/layout/main_page.xml" value="0.25" />
         <entry key="..\:/Users/alanc/AndroidStudioProjects/FreedomProject/app/src/main/res/layout/past_activities.xml" value="0.36141304347826086" />
+        <entry key="..\:/Users/alanc/AndroidStudioProjects/FreedomProject/app/src/main/res/layout/posthistory.xml" value="0.20969202898550723" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DiscussiongHall/app/src/main/res/drawable/ic_baseline_error_24.xml" value="0.179" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DiscussiongHall/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.179" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DiscussiongHall/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2555" />
-        <entry key="..\:/Users/user/AndroidStudioProjects/DiscussiongHall/app/src/main/res/drawable/shapeofpostcomment.xml" value="0.2" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DiscussiongHall/app/src/main/res/layout/activity_create_account.xml" value="0.18070652173913043" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DiscussiongHall/app/src/main/res/layout/activity_discussing_hall.xml" value="0.25" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DiscussiongHall/app/src/main/res/layout/activity_login_page.xml" value="0.25" />
@@ -27,7 +34,6 @@
         <entry key="..\:/Users/user/AndroidStudioProjects/DiscussiongHall/app/src/main/res/layout/main_activity2.xml" value="0.25" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DiscussiongHall/app/src/main/res/layout/main_page.xml" value="0.2" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DiscussiongHall/app/src/main/res/layout/past_activities.xml" value="0.25" />
-        <entry key="..\:/Users/user/AndroidStudioProjects/DiscussiongHall/app/src/main/res/layout/posthistory.xml" value="0.25" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DiscussiongHall/app/src/main/res/layout/user_profile.xml" value="0.25" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DiscussiongHall/app/src/main/res/layout/userprofile.xml" value="0.25" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DiscussiongHall/app/src/main/res/menu/navigation_menu.xml" value="0.25" />

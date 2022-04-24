@@ -8,18 +8,19 @@
     tools:context=".LoginPage">
 
 
-
     <TextView
+        android:id="@+id/sign_in"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sign In"
-        android:id="@+id/sign_in"
-        android:textSize="48dp"
-        android:textStyle="bold"
-        android:textColor="@color/teal_200"
-        android:layout_margin="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="50dp"
         android:gravity="center"
-        />
+        android:text="Sign In"
+        android:textColor="@color/teal_200"
+        android:textSize="48dp"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/username"
