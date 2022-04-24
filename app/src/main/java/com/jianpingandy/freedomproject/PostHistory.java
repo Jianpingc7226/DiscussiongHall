@@ -36,6 +36,7 @@ public class PostHistory extends AppCompatActivity {
         homeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                newComment.setVisibility(View.INVISIBLE);
                 startActivity(new Intent(getApplicationContext(), Main_Page.class));
             }
         });
