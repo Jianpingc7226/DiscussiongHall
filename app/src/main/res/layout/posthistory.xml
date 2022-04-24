@@ -4,8 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/posthistory_background"
     tools:context=".PostHistory">
+
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.3"
+        android:scaleType="fitXY"
+        android:src="@drawable/discussing_hall_background" />
 
     <TextView
         android:id="@+id/pastActivityTitle"
@@ -13,15 +20,69 @@
         android:layout_height="wrap_content"
         android:text="Post History"
         android:textSize='48dp'
-        android:textColor="@color/white"
+        android:textColor="#fc0330"
+        android:textStyle="bold"
         android:layout_centerHorizontal="true"
         android:layout_margin="20dp"
     />
 
-    <ScrollView
+    <TextView
+        android:id="@+id/user1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pastActivityTitle"
+        android:layout_marginTop="21dp"
+        android:text="Alan"
+        android:textColor="#9505f5"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/Question"
         android:layout_width="match_parent"
-        android:layout_height="506dp"
-        android:layout_below="@+id/pastActivityTitle"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/user1"
+        android:layout_marginTop="10dp"
+        android:text="What is 1 + 1?"
+        android:textStyle="bold"
+        android:textColor="#9505f5"
+        android:textSize="28dp" />
+
+    <Button
+        android:id="@+id/homeBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:text="Home"/>
+
+    <EditText
+        android:id="@+id/comment"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Question"
+        android:textColor="#f50213"
+        android:background="#11f5ed"
+        android:layout_centerHorizontal="true"
+        android:textSize="20dp"
+        android:hint="Your Thoughts"
+        android:gravity="center"/>
+
+    <ImageView
+        android:id="@+id/confirm"
+        android:layout_width="40sp"
+        android:layout_height="40sp"
+        android:layout_below="@+id/comment"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/check_box" />
+
+    <ScrollView
+        android:id="@+id/pastComments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/homeBtn"
+        android:layout_below="@+id/confirm"
+        android:layout_alignParentBottom="true"
         android:layout_marginTop="12dp"
         tools:ignore="SpeakableTextPresentCheck">
 
@@ -31,34 +92,31 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/sign_in"
-                android:layout_width="match_parent"
+                android:id="@+id/user2"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:text="Alan"
-                android:textColor="@color/teal_200"
-                android:textSize="28dp"
-                android:textStyle="bold" />
-
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="User HERE?"
+                android:textSize="20dp"
+                android:textColor="#9505f5"
+                android:textStyle="bold"
+                android:background="@color/white"
+                />
             <TextView
-                android:id="@+id/textView3"
-                android:layout_width="match_parent"
+                android:id="@+id/newCommentContent"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="What is 1 + 1?"
-                android:textColor="@color/teal_200"
-                android:textSize="28dp" />
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Comments Shown HERE?"
+                android:textColor="#9505f5"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:background="@color/white"
+                />
 
-            <Button
-                android:id="@+id/button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="comment" />
         </LinearLayout>
     </ScrollView>
-
 
 </RelativeLayout>

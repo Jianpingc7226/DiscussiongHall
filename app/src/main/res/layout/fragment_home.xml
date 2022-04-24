@@ -24,83 +24,71 @@
         android:layout_centerHorizontal="true"
         android:text="Create Post" />
 
+    <TextView
+        android:id="@+id/discussingHallTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="30dp"
+        android:text="Discussing Hall"
+        android:textColor="#fc0330"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/discussingHallTitle"
+        android:layout_centerHorizontal="true"
+        android:background="#808080"
+        android:gravity="center"
+        android:hint="WRITE YOUR POST"
+        android:minHeight="48dp"
+        android:textColor="@color/white"
+        android:textColorHint="#D3D3D3"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/check_mark"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/input"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/confirm_to_post_icon"
+        android:visibility="invisible" />
+
     <ScrollView
-        android:id="@+id/scroll"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="vertical"
-        android:fillViewport="true">
+        android:id="@+id/seequestions"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/createPostBtn"
+        android:layout_below="@id/check_mark"
+        >
 
-        <RelativeLayout
-            android:id="@+id/postLayout"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/discussingHallTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_margin="30dp"
-                android:text="Discussing Hall"
-                android:textColor="#fc0330"
-                android:textSize="50sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/input"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/discussingHallTitle"
-                android:background="#808080"
-                android:layout_centerHorizontal="true"
-                android:gravity="center"
-                android:hint="WRITE WHAT YOU WANT TO POST"
-                android:minHeight="48dp"
-                android:textColor="@color/white"
-                android:textColorHint="#D3D3D3"
-                android:visibility="invisible"/>
-
-            <ImageView
-                android:id="@+id/check_mark"
-                android:layout_width="40sp"
-                android:layout_height="40sp"
-                android:layout_below="@id/input"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/confirm_to_post_icon"
-                android:visibility="invisible"/>
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
             <TextView
                 android:id="@+id/Post"
-                android:layout_width="400dp"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/check_mark"
-                android:layout_centerHorizontal="true"
                 android:gravity="center"
+                android:layout_gravity="center"
                 android:background="@drawable/shapeofpostcomment"
-                android:visibility="invisible"
-                />
+                android:textSize="25dp"
+                android:visibility="invisible" />
 
             <ImageView
                 android:id="@+id/replyBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/Post"
+                android:layout_gravity="center"
                 android:src="@drawable/reply_icon"
-                android:visibility="invisible"
-                android:layout_centerHorizontal="true"/>
-
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" />
-            </ScrollView>
-
-        </RelativeLayout>
+                android:visibility="invisible" />
+        </LinearLayout>
     </ScrollView>
+
 </RelativeLayout>
 
