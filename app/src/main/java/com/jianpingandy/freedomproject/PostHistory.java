@@ -20,6 +20,7 @@ public class PostHistory extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.posthistory);
 
+        Button homeBtn = findViewById(R.id.homeBtn);
         ImageView userComment = findViewById(R.id.confirm);
         EditText commentContent = findViewById(R.id.comment);
         TextView newComment = findViewById(R.id.newCommentContent);
@@ -32,5 +33,11 @@ public class PostHistory extends AppCompatActivity {
             }
         });
 
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), Main_Page.class));
+            }
+        });
     }
 }
