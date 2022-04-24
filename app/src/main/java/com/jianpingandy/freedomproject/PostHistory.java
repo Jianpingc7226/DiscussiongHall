@@ -28,7 +28,7 @@ public class PostHistory extends AppCompatActivity {
         userComment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                newComment.setText(commentContent.getText().toString());
+                newComment.setText(commentContent.getText());
                 commentContent.setText("");
             }
         });

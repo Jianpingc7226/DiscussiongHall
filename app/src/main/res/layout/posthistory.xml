@@ -18,7 +18,6 @@
         android:id="@+id/user1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/pastActivityTitle"
         android:layout_marginTop="21dp"
         android:text="Alan"
         android:textColor="#9505f5"
@@ -86,7 +85,7 @@
                 android:layout_gravity="center"
                 android:background="@color/white"
                 android:gravity="center"
-                android:text="User HERE?"
+                android:text="Username HERE"
                 android:textColor="#9505f5"
                 android:textSize="20dp"
                 android:textStyle="bold" />
@@ -98,7 +97,6 @@
                 android:layout_gravity="center"
                 android:background="@color/white"
                 android:gravity="center"
-                android:text="Comments Shown HERE?"
                 android:textColor="#9505f5"
                 android:textSize="20dp"
                 android:textStyle="bold" />

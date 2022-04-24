@@ -34,6 +34,7 @@ public class HomeFragment extends Fragment {
         EditText input = (EditText) view.findViewById(R.id.input);
         ImageView check = view.findViewById(R.id.check_mark);
         TextView post = view.findViewById(R.id.Post);
+        TextView userName = view.findViewById(R.id.nameOfUser);
         ImageView reply = view.findViewById(R.id.replyBtn);
 
         createPostBtn.setOnClickListener(new View.OnClickListener() {
@@ -50,6 +51,7 @@ public class HomeFragment extends Fragment {
                 post.setText(input.getText().toString());
                 post.setVisibility(View.VISIBLE);
                 reply.setVisibility(View.VISIBLE);
+                userName.setVisibility(View.VISIBLE);
                 input.setText("");
             }
         });
