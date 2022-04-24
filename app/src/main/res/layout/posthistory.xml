@@ -11,53 +11,25 @@
         android:id="@+id/pastActivityTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Post History"
-        android:textSize='48dp'
-        android:textColor="@color/white"
         android:layout_centerHorizontal="true"
-        android:layout_margin="20dp"
-    />
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="Post History"
+        android:textColor="@color/white"
+        android:textSize='48dp' />
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="506dp"
+        android:layout_height="544dp"
         android:layout_below="@+id/pastActivityTitle"
-        android:layout_marginTop="12dp"
-        tools:ignore="SpeakableTextPresentCheck">
+        android:layout_marginTop="12dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/sign_in"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:text="Alan"
-                android:textColor="@color/teal_200"
-                android:textSize="28dp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="What is 1 + 1?"
-                android:textColor="@color/teal_200"
-                android:textSize="28dp" />
-
-            <Button
-                android:id="@+id/button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="comment" />
-        </LinearLayout>
+            android:orientation="vertical" />
     </ScrollView>
 
 
