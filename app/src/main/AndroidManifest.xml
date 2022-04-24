@@ -15,7 +15,7 @@
         >
 
         <activity
-            android:name=".PastActivities"
+            android:name=".PostHistory"
             android:exported="false" />
         <activity
             android:name=".LoginPage"
