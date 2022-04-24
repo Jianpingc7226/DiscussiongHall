@@ -15,18 +15,6 @@
         android:src="@drawable/discussing_hall_background" />
 
     <TextView
-        android:id="@+id/pastActivityTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Post History"
-        android:textSize='48dp'
-        android:textColor="#fc0330"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="20dp"
-    />
-
-    <TextView
         android:id="@+id/user1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -96,25 +84,24 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:background="@color/white"
                 android:gravity="center"
                 android:text="User HERE?"
-                android:textSize="20dp"
                 android:textColor="#9505f5"
-                android:textStyle="bold"
-                android:background="@color/white"
-                />
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/newCommentContent"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:background="@color/white"
                 android:gravity="center"
                 android:text="Comments Shown HERE?"
                 android:textColor="#9505f5"
-                android:textStyle="bold"
                 android:textSize="20dp"
-                android:background="@color/white"
-                />
+                android:textStyle="bold" />
 
         </LinearLayout>
     </ScrollView>
