@@ -151,6 +151,7 @@ public class HomeFragment extends Fragment {
                             check.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
+                                    input.setText("");
                                     Map<String,Object> postData = new HashMap<>();
                                     postData.put("Announcer",CurrentUser);
                                     postData.put("Title",input.getText().toString());
