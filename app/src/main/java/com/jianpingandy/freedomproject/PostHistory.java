@@ -21,9 +21,11 @@ public class PostHistory extends AppCompatActivity {
         setContentView(R.layout.posthistory);
 
         Button homeBtn = findViewById(R.id.homeBtn);
+        TextView question = findViewById(R.id.Question);
         ImageView userComment = findViewById(R.id.confirm);
         EditText commentContent = findViewById(R.id.comment);
         TextView newComment = findViewById(R.id.newCommentContent);
+
 
         userComment.setOnClickListener(new View.OnClickListener() {
             @Override

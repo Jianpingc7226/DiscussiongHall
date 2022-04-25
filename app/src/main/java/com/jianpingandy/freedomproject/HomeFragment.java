@@ -73,6 +73,7 @@ public class HomeFragment extends Fragment {
         TextView userName = view.findViewById(R.id.nameOfUser);
         ImageView reply = view.findViewById(R.id.replyBtn);
         LinearLayout postArea = (LinearLayout) view.findViewById(R.id.alan);
+
         db.collection("Post")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -116,7 +117,8 @@ public class HomeFragment extends Fragment {
                                 commentButton.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
-
+                                        Button button = (Button) view;
+                                        int id = getId();
                                     }
                                 });
 
@@ -130,10 +132,6 @@ public class HomeFragment extends Fragment {
                         }
                     }
                 });
-
-
-
-
 
                             createPostBtn.setOnClickListener(new View.OnClickListener() {
                                 @Override
@@ -199,13 +197,6 @@ public class HomeFragment extends Fragment {
                                                     postArea.addView(layout);
                                                 }
                                             });
-                                }
-                            });
-
-                            reply.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-                                    startActivity(new Intent(getContext(), PostHistory.class));
                                 }
                             });
 
