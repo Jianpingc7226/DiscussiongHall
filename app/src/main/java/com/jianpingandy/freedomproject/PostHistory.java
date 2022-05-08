@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -106,8 +107,6 @@ public class PostHistory extends AppCompatActivity {
 
                                                 commentId++;
 
-
-
                                             }
                                         }
                                     }
@@ -133,35 +132,39 @@ public class PostHistory extends AppCompatActivity {
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
+                                    String ContentInComment = commentContent.getText().toString().toLowerCase();
+                                if (ContentInComment.indexOf("fuck")  >= 0 || ContentInComment.indexOf("shit") >= 0 || ContentInComment.indexOf("shut up") >= 0 || ContentInComment.indexOf("bullshit") >= 0 || ContentInComment.indexOf("motherfucker") >= 0 || ContentInComment.indexOf("mother fucker") >= 0){
+                                    commentContent.setText("");
+                                    Toast.makeText(PostHistory.this, "WATCH YOUR LANGUAGE!!!", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    LinearLayout layout = new LinearLayout(PostHistory.this);
+                                    layout.setOrientation(LinearLayout.VERTICAL);
+                                    layout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
 
-                                LinearLayout layout = new LinearLayout(PostHistory.this);
-                                layout.setOrientation(LinearLayout.VERTICAL);
-                                layout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                                    TextView userName = new TextView(PostHistory.this);
+                                    userName.setBackgroundColor(0xffffffff);
+                                    userName.setGravity(Gravity.CENTER);
+                                    userName.setText(commentContent.getText().toString());
+                                    userName.setTextColor(Color.parseColor("#9505f5"));
+                                    userName.setTextSize(20);
+                                    userName.setTypeface(null, Typeface.BOLD);
 
-                                TextView userName = new TextView(PostHistory.this);
-                                userName.setBackgroundColor(0xffffffff);
-                                userName.setGravity(Gravity.CENTER);
-                                userName.setText(commentContent.getText().toString());
-                                userName.setTextColor(Color.parseColor("#9505f5"));
-                                userName.setTextSize(20);
-                                userName.setTypeface(null, Typeface.BOLD);
+                                    TextView userComment = new TextView(PostHistory.this);
+                                    userComment.setBackgroundColor(0xffffffff);
+                                    userComment.setGravity(Gravity.CENTER);
+                                    userComment.setTextColor(Color.parseColor("#9505f5"));
+                                    userComment.setTextSize(20);
+                                    userComment.setTypeface(null, Typeface.BOLD);
+                                    userComment.setText(CurrentUser);
 
-                                TextView userComment = new TextView(PostHistory.this);
-                                userComment.setBackgroundColor(0xffffffff);
-                                userComment.setGravity(Gravity.CENTER);
-                                userComment.setTextColor(Color.parseColor("#9505f5"));
-                                userComment.setTextSize(20);
-                                userComment.setTypeface(null,Typeface.BOLD);
-                                userComment.setText(CurrentUser);
-
-                                layout.addView(userName);
-                                layout.addView(userComment);
-                                commentArea.addView(layout);
-                                commentId++;
-                                commentContent.setText("");
+                                    layout.addView(userName);
+                                    layout.addView(userComment);
+                                    commentArea.addView(layout);
+                                    commentId++;
+                                    commentContent.setText("");
+                                }
                             }
                         });
-
             }
         });
 
