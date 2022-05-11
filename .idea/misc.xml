@@ -37,6 +37,13 @@
         <entry key="..\:/Users/user/AndroidStudioProjects/DiscussiongHall/app/src/main/res/layout/user_profile.xml" value="0.25" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DiscussiongHall/app/src/main/res/layout/userprofile.xml" value="0.25" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DiscussiongHall/app/src/main/res/menu/navigation_menu.xml" value="0.25" />
+        <entry key="app/src/main/res/drawable/thumb_up_icon.xml" value="0.256" />
+        <entry key="app/src/main/res/layout/activity_create_account.xml" value="0.35144927536231885" />
+        <entry key="app/src/main/res/layout/activity_login_page.xml" value="0.35144927536231885" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.35144927536231885" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.1234375" />
+        <entry key="app/src/main/res/layout/posthistory.xml" value="0.1" />
       </map>
     </option>
   </component>

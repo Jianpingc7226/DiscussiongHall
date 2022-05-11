@@ -81,13 +81,14 @@ public class HomeFragment extends Fragment {
                         if(task.isSuccessful()){
                             for(QueryDocumentSnapshot document : task.getResult()){
 
-                            LinearLayout layout = new LinearLayout(container.getContext());
-                            layout.setOrientation(LinearLayout.VERTICAL);
-                            layout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                                LinearLayout layout = new LinearLayout(container.getContext());
+                                layout.setOrientation(LinearLayout.VERTICAL);
+                                layout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
 
 //                                ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
 //                                layoutParams.width = 300;
-//                                layoutParams.height = android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
+//                                layoutPara
+//                                ms.height = android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
                                 TextView Question = new TextView(container.getContext());
                                 Question.setText(document.get("Title").toString());
                                 Question.setTextSize(25);
@@ -107,9 +108,12 @@ public class HomeFragment extends Fragment {
                                 userName.setGravity(Gravity.CENTER);
                                 userName.setTypeface(null, Typeface.BOLD);
 
+
+
                                 ImageView commentButton = new ImageView(container.getContext());
                                 commentButton.setId(id);
                                 commentButton.setImageResource(R.drawable.reply_icon);
+
                                 id++;
 
 
@@ -140,82 +144,83 @@ public class HomeFragment extends Fragment {
 
 
 
-                            createPostBtn.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-                                    input.setVisibility(View.VISIBLE);
-                                    check.setVisibility(View.VISIBLE);
-                                }
-                            });
+        createPostBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                input.setVisibility(View.VISIBLE);
+                check.setVisibility(View.VISIBLE);
+            }
+        });
 
-                            check.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-                                    input.setText("");
-                                    Map<String,Object> postData = new HashMap<>();
-                                    postData.put("Announcer",CurrentUser);
-                                    postData.put("Title",input.getText().toString());
-                                    postData.put("id",id);
-                                    db.collection("Post").document(String.valueOf(id))
-                                            .set(postData)
-                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                @Override
-                                                public void onComplete(@NonNull Task<Void> task) {
+        check.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-                                                    LinearLayout layout = new LinearLayout(container.getContext());
-                                                    layout.setOrientation(LinearLayout.VERTICAL);
-                                                    layout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                Map<String,Object> postData = new HashMap<>();
+                postData.put("Announcer",CurrentUser);
+                postData.put("Title",input.getText().toString());
+                postData.put("id",id);
+                db.collection("Post").document(String.valueOf(id))
+                        .set(postData)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+
+                                LinearLayout layout = new LinearLayout(container.getContext());
+                                layout.setOrientation(LinearLayout.VERTICAL);
+                                layout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
 
 
-                                                    TextView Question = new TextView(container.getContext());
-                                                    Question.setText(input.getText().toString());
-                                                    Question.setTextSize(25);
-                                                    Question.setGravity(Gravity.CENTER);
-                                                    Question.setBackgroundResource(R.drawable.shapeofpostcomment);
+                                TextView Question = new TextView(container.getContext());
+                                Question.setText(input.getText().toString());
+                                Question.setTextSize(25);
+                                Question.setGravity(Gravity.CENTER);
+                                Question.setBackgroundResource(R.drawable.shapeofpostcomment);
 //                                Question.setLayoutParams(layoutParams);
-                                                    layout.addView(Question);
+                                layout.addView(Question);
 
-                                                    LinearLayout layout2 = new LinearLayout(container.getContext());
-                                                    layout2.setOrientation(LinearLayout.HORIZONTAL);
-                                                    layout2.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT));
+                                LinearLayout layout2 = new LinearLayout(container.getContext());
+                                layout2.setOrientation(LinearLayout.HORIZONTAL);
+                                layout2.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT));
 
-                                                    TextView userName = new TextView(container.getContext());
-                                                    userName.setText(CurrentUser);
+                                TextView userName = new TextView(container.getContext());
+                                userName.setText(CurrentUser);
 //                                userName.setTextColor(Integer.parseInt("#9505f5"));
-                                                    userName.setTextSize(20);
-                                                    userName.setGravity(Gravity.CENTER);
-                                                    userName.setTypeface(null, Typeface.BOLD);
+                                userName.setTextSize(20);
+                                userName.setGravity(Gravity.CENTER);
+                                userName.setTypeface(null, Typeface.BOLD);
 
-                                                    ImageView commentButton = new ImageView(container.getContext());
-                                                    commentButton.setId(id);
-                                                    commentButton.setImageResource(R.drawable.reply_icon);
-                                                    id++;
+                                ImageView commentButton = new ImageView(container.getContext());
+                                commentButton.setId(id);
+                                commentButton.setImageResource(R.drawable.reply_icon);
+                                id++;
 
 
-                                                    commentButton.setOnClickListener(new View.OnClickListener() {
-                                                        @Override
-                                                        public void onClick(View view) {
+                                commentButton.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
 
-                                                        }
-                                                    });
+                                    }
+                                });
 
-                                                    layout2.addView(userName);
-                                                    layout2.addView(commentButton);
-                                                    layout.addView(layout2);
-                                                    postArea.addView(layout);
-                                                }
-                                            });
-                                }
-                            });
+                                layout2.addView(userName);
+                                layout2.addView(commentButton);
+                                layout.addView(layout2);
+                                postArea.addView(layout);
+                                input.setText("");
+                            }
+                        });
+            }
+        });
 
-                            reply.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-                                    startActivity(new Intent(getContext(), PostHistory.class));
-                                }
-                            });
+        reply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), PostHistory.class));
+            }
+        });
 
-                            return view;
-                        }
+        return view;
+    }
 
-                    }
+}

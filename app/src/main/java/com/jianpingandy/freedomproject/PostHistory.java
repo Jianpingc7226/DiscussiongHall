@@ -83,26 +83,29 @@ public class PostHistory extends AppCompatActivity {
                                             for(QueryDocumentSnapshot document1: task.getResult()){
                                                 LinearLayout layout = new LinearLayout(PostHistory.this);
                                                 layout.setOrientation(LinearLayout.VERTICAL);
-                                                layout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                                                layout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
 
                                                 TextView userName = new TextView(PostHistory.this);
-                                                userName.setBackgroundColor(0xffffffff);
-                                                userName.setGravity(Gravity.CENTER);
+                                                userName.setBackgroundColor(Color.BLACK);
                                                 userName.setText(document1.get("userCommented").toString());
-                                                userName.setTextColor(Color.parseColor("#9505f5"));
+                                                userName.setTextColor(Color.WHITE);
                                                 userName.setTextSize(20);
                                                 userName.setTypeface(null, Typeface.BOLD);
 
                                                 TextView userComment = new TextView(PostHistory.this);
-                                                userComment.setBackgroundColor(0xffffffff);
-                                                userComment.setGravity(Gravity.CENTER);
-                                                userComment.setTextColor(Color.parseColor("#9505f5"));
+                                                userComment.setBackgroundColor(Color.WHITE);
+                                                userComment.setTextColor(Color.BLACK);
                                                 userComment.setTextSize(20);
                                                 userComment.setTypeface(null,Typeface.BOLD);
                                                 userComment.setText(document1.get("Comment").toString());
 
+                                                ImageView icon = new ImageView(PostHistory.this);
+                                                icon.setImageResource(R.drawable.thumb_up_icon);
+                                                icon.setTag(document1.get("userCommented").toString());
+
                                                 layout.addView(userName);
                                                 layout.addView(userComment);
+                                                layout.addView(icon);
                                                 commentArea.addView(layout);
 
                                                 commentId++;
@@ -132,35 +135,37 @@ public class PostHistory extends AppCompatActivity {
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
-                                    String ContentInComment = commentContent.getText().toString().toLowerCase();
+                                String ContentInComment = commentContent.getText().toString().toLowerCase();
                                 if (ContentInComment.indexOf("fuck")  >= 0 || ContentInComment.indexOf("shit") >= 0 || ContentInComment.indexOf("shut up") >= 0 || ContentInComment.indexOf("bullshit") >= 0 || ContentInComment.indexOf("motherfucker") >= 0 || ContentInComment.indexOf("mother fucker") >= 0){
                                     commentContent.setText("");
                                     Toast.makeText(PostHistory.this, "WATCH YOUR LANGUAGE!!!", Toast.LENGTH_SHORT).show();
                                 } else {
+
                                     LinearLayout layout = new LinearLayout(PostHistory.this);
                                     layout.setOrientation(LinearLayout.VERTICAL);
-                                    layout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                                    layout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
 
                                     TextView userName = new TextView(PostHistory.this);
-                                    userName.setBackgroundColor(0xffffffff);
-                                    userName.setGravity(Gravity.CENTER);
+                                    userName.setBackgroundColor(Color.BLACK);
                                     userName.setText(commentContent.getText().toString());
-                                    userName.setTextColor(Color.parseColor("#9505f5"));
+                                    userName.setTextColor(Color.WHITE);
                                     userName.setTextSize(20);
                                     userName.setTypeface(null, Typeface.BOLD);
 
                                     TextView userComment = new TextView(PostHistory.this);
-                                    userComment.setBackgroundColor(0xffffffff);
-                                    userComment.setGravity(Gravity.CENTER);
-                                    userComment.setTextColor(Color.parseColor("#9505f5"));
+                                    userComment.setBackgroundColor(Color.WHITE);
+                                    userComment.setTextColor(Color.BLACK);
                                     userComment.setTextSize(20);
-                                    userComment.setTypeface(null, Typeface.BOLD);
+                                    userComment.setTypeface(null,Typeface.BOLD);
                                     userComment.setText(CurrentUser);
 
                                     layout.addView(userName);
                                     layout.addView(userComment);
                                     commentArea.addView(layout);
+
                                     commentId++;
+
+
                                     commentContent.setText("");
                                 }
                             }
