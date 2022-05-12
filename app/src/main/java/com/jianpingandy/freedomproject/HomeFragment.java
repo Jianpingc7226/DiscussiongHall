@@ -199,7 +199,12 @@ public class HomeFragment extends Fragment {
                                 commentButton.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
-
+                                        ImageView button = (ImageView) view;
+                                        int id = button.getId();
+                                        String trueId = String.valueOf(id);
+                                        Intent intent = new Intent(getActivity(), PostHistory.class);
+                                        intent.putExtra("postId",trueId);
+                                        startActivity(intent);
                                     }
                                 });
 

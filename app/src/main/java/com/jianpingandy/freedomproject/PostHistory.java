@@ -40,6 +40,7 @@ public class PostHistory extends AppCompatActivity {
     public int commentId=1;
     String CurrentUser;
 
+
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -99,13 +100,35 @@ public class PostHistory extends AppCompatActivity {
                                                 userComment.setTypeface(null,Typeface.BOLD);
                                                 userComment.setText(document1.get("Comment").toString());
 
+
+
                                                 ImageView icon = new ImageView(PostHistory.this);
                                                 icon.setImageResource(R.drawable.thumb_up_icon);
-                                                icon.setTag(document1.get("userCommented").toString());
+                                                icon.setId(commentId);
+
+
+
+                                                icon.setOnClickListener(new View.OnClickListener() {
+                                                    @Override
+                                                    public void onClick(View view) {
+                                                        ImageView button = (ImageView) view;
+                                                        int number = button.getId();
+//                                                        int likes = 0;
+//                                                        db.collection("Post").document(id).collection("Comments").document(String.valueOf(number)).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+//                                                            @Override
+//                                                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+//                                                                DocumentSnapshot document2 = task.getResult();
+//                                                                likes = Integer.valueOf((Integer) document2.get("like"));
+//                                                            }
+//                                                        });
+//                                                        db.collection("Post").document(id).collection("Comments").document(String.valueOf(number)).update("like",)
+                                                    }
+                                                });
 
                                                 layout.addView(userName);
                                                 layout.addView(userComment);
                                                 layout.addView(icon);
+
                                                 commentArea.addView(layout);
 
                                                 commentId++;
@@ -130,6 +153,7 @@ public class PostHistory extends AppCompatActivity {
                 Map<String,Object> Comment = new HashMap<>();
                 Comment.put("Comment",commentContent.getText().toString());
                 Comment.put("userCommented",CurrentUser);
+                Comment.put("like",0);
                 db.collection("Post").document(id).collection("Comments").document(String.valueOf(commentId))
                         .set(Comment)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -159,13 +183,29 @@ public class PostHistory extends AppCompatActivity {
                                     userComment.setTypeface(null,Typeface.BOLD);
                                     userComment.setText(CurrentUser);
 
+                                    ImageView icon = new ImageView(PostHistory.this);
+                                    icon.setImageResource(R.drawable.thumb_up_icon);
+//                                    icon.setId(commentId);
+
+//                                    int like = 0;
+//
+//                                    icon.setOnClickListener(new View.OnClickListener() {
+//                                        @Override
+//                                        public void onClick(View view) {
+//                                            ImageView button = (ImageView) view;
+//                                            int number = button.getId();
+//                                            db.collection("Post").document(id).collection("Comments").document(String.valueOf(number)).update("like", like+1);
+//
+//                                        }
+//                                    });
+
                                     layout.addView(userName);
                                     layout.addView(userComment);
+                                    layout.addView(icon);
+
                                     commentArea.addView(layout);
 
                                     commentId++;
-
-
                                     commentContent.setText("");
                                 }
                             }
