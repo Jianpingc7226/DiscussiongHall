@@ -42,6 +42,8 @@ import java.util.Map;
 public class PostHistory extends AppCompatActivity {
     public int commentId=1;
     String CurrentUser;
+    String CurrentUserSchool;
+    Boolean hasSchool = false;
 
 
     @Override
@@ -60,11 +62,17 @@ public class PostHistory extends AppCompatActivity {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         DocumentReference docRef = db.collection("User").document(user.getEmail());
 
+
+
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 DocumentSnapshot document = task.getResult();
                 CurrentUser = document.get("username").toString();
+                if(!document.get("school").equals("")){
+                    hasSchool = true;
+                    CurrentUserSchool = document.get("school").toString();
+                }
             }
         });
 
@@ -77,6 +85,7 @@ public class PostHistory extends AppCompatActivity {
                     if(document.exists()){
                         announser.setText(document.get("Announcer").toString());
                         question.setText(document.get("Title").toString());
+
 
                         db.collection("Post").document(id).collection("Comments").get()
                                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -168,8 +177,13 @@ public class PostHistory extends AppCompatActivity {
             public void onClick(View view) {
                 Map<String,Object> Comment = new HashMap<>();
                 Comment.put("Comment",commentContent.getText().toString());
-                Comment.put("userCommented",CurrentUser);
+
                 Comment.put("like",0);
+                if(hasSchool){
+                    Comment.put("userCommented",CurrentUser+" from " + CurrentUserSchool);
+                } else {
+                    Comment.put("userCommented",CurrentUser);
+                }
                 db.collection("Post").document(id).collection("Comments").document(String.valueOf(commentId))
                         .set(Comment)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -187,37 +201,62 @@ public class PostHistory extends AppCompatActivity {
 
                                     TextView userName = new TextView(PostHistory.this);
                                     userName.setBackgroundColor(Color.BLACK);
-                                    userName.setText(commentContent.getText().toString());
                                     userName.setTextColor(Color.WHITE);
                                     userName.setTextSize(20);
                                     userName.setTypeface(null, Typeface.BOLD);
+                                    if(hasSchool){
+                                        userName.setText(CurrentUser+" from " + CurrentUserSchool);
+                                    } else {
+                                        userName.setText(CurrentUser);
+                                    }
+
 
                                     TextView userComment = new TextView(PostHistory.this);
                                     userComment.setBackgroundColor(Color.WHITE);
                                     userComment.setTextColor(Color.BLACK);
                                     userComment.setTextSize(20);
                                     userComment.setTypeface(null,Typeface.BOLD);
-                                    userComment.setText(CurrentUser);
+                                    userComment.setText(commentContent.getText().toString());
+
+                                    LinearLayout likeslayout = new LinearLayout(PostHistory.this);
+                                    likeslayout.setOrientation(LinearLayout.HORIZONTAL);
+                                    likeslayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
+
+
+
+                                    TextView numberOfLikes = new TextView(PostHistory.this);
+                                    numberOfLikes.setText("0");
+                                    numberOfLikes.setTag(commentId);
+
 
                                     ImageView icon = new ImageView(PostHistory.this);
                                     icon.setImageResource(R.drawable.thumb_up_icon);
-//                                    icon.setId(commentId);
+                                    icon.setId(commentId);
 
-//                                    int like = 0;
-//
-//                                    icon.setOnClickListener(new View.OnClickListener() {
-//                                        @Override
-//                                        public void onClick(View view) {
-//                                            ImageView button = (ImageView) view;
-//                                            int number = button.getId();
-//                                            db.collection("Post").document(id).collection("Comments").document(String.valueOf(number)).update("like", like+1);
-//
-//                                        }
-//                                    });
+                                    likeslayout.addView(numberOfLikes);
+                                    likeslayout.addView(icon);
+
+                                    icon.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View view) {
+                                            ImageView button = (ImageView) view;
+                                            int number = button.getId();
+                                            LinearLayout parentComment = (LinearLayout) (view.getParent());
+                                            TextView numberLikes = parentComment.findViewWithTag(number);
+                                            db.collection("Post").document(id).collection("Comments").document(String.valueOf(number)).update("like", FieldValue.increment(1));
+                                            db.collection("Post").document(id).collection("Comments").document(String.valueOf(number)).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                                    DocumentSnapshot document2 = task.getResult();
+                                                    numberLikes.setText(document2.get("like").toString());
+                                                }
+                                            });
+                                        }
+                                    });
 
                                     layout.addView(userName);
                                     layout.addView(userComment);
-                                    layout.addView(icon);
+                                    layout.addView(likeslayout);
 
                                     commentArea.addView(layout);
 
