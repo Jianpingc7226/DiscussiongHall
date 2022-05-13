@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,10 +27,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import org.w3c.dom.Comment;
 import org.w3c.dom.Document;
 import org.w3c.dom.Text;
 
@@ -80,11 +83,10 @@ public class PostHistory extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                                         if(task.isSuccessful()){
-
                                             for(QueryDocumentSnapshot document1: task.getResult()){
                                                 LinearLayout layout = new LinearLayout(PostHistory.this);
                                                 layout.setOrientation(LinearLayout.VERTICAL);
-                                                layout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
+                                                layout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
 
                                                 TextView userName = new TextView(PostHistory.this);
                                                 userName.setBackgroundColor(Color.BLACK);
@@ -101,33 +103,47 @@ public class PostHistory extends AppCompatActivity {
                                                 userComment.setText(document1.get("Comment").toString());
 
 
+                                                LinearLayout likeslayout = new LinearLayout(PostHistory.this);
+                                                likeslayout.setOrientation(LinearLayout.HORIZONTAL);
+                                                likeslayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
+
+
+
+                                                TextView numberOfLikes = new TextView(PostHistory.this);
+                                                numberOfLikes.setText(document1.get("like").toString());
+                                                numberOfLikes.setTag(commentId);
+
 
                                                 ImageView icon = new ImageView(PostHistory.this);
                                                 icon.setImageResource(R.drawable.thumb_up_icon);
                                                 icon.setId(commentId);
 
-
+                                                likeslayout.addView(numberOfLikes);
+                                                likeslayout.addView(icon);
 
                                                 icon.setOnClickListener(new View.OnClickListener() {
                                                     @Override
                                                     public void onClick(View view) {
                                                         ImageView button = (ImageView) view;
                                                         int number = button.getId();
-//                                                        int likes = 0;
-//                                                        db.collection("Post").document(id).collection("Comments").document(String.valueOf(number)).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-//                                                            @Override
-//                                                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-//                                                                DocumentSnapshot document2 = task.getResult();
-//                                                                likes = Integer.valueOf((Integer) document2.get("like"));
-//                                                            }
-//                                                        });
-//                                                        db.collection("Post").document(id).collection("Comments").document(String.valueOf(number)).update("like",)
+                                                        LinearLayout parentComment = (LinearLayout) (view.getParent());
+                                                        TextView numberLikes = parentComment.findViewWithTag(number);
+                                                        db.collection("Post").document(id).collection("Comments").document(String.valueOf(number)).update("like", FieldValue.increment(1));
+                                                        db.collection("Post").document(id).collection("Comments").document(String.valueOf(number)).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                                            @Override
+                                                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                                                DocumentSnapshot document2 = task.getResult();
+                                                                numberLikes.setText(document2.get("like").toString());
+                                                            }
+                                                        });
                                                     }
                                                 });
 
                                                 layout.addView(userName);
                                                 layout.addView(userComment);
-                                                layout.addView(icon);
+//                                                layout.addView(numberOfLikes);
+//                                                layout.addView(icon);
+                                                layout.addView(likeslayout);
 
                                                 commentArea.addView(layout);
 
