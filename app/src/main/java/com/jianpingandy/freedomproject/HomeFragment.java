@@ -165,54 +165,59 @@ public class HomeFragment extends Fragment {
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
-
-                                LinearLayout layout = new LinearLayout(container.getContext());
-                                layout.setOrientation(LinearLayout.VERTICAL);
-                                layout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-
-
-                                TextView Question = new TextView(container.getContext());
-                                Question.setText(input.getText().toString());
-                                Question.setTextSize(25);
-                                Question.setGravity(Gravity.CENTER);
-                                Question.setBackgroundResource(R.drawable.shapeofpostcomment);
-//                                Question.setLayoutParams(layoutParams);
-                                layout.addView(Question);
-
-                                LinearLayout layout2 = new LinearLayout(container.getContext());
-                                layout2.setOrientation(LinearLayout.HORIZONTAL);
-                                layout2.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT));
-
-                                TextView userName = new TextView(container.getContext());
-                                userName.setText(CurrentUser);
-//                                userName.setTextColor(Integer.parseInt("#9505f5"));
-                                userName.setTextSize(20);
-                                userName.setGravity(Gravity.CENTER);
-                                userName.setTypeface(null, Typeface.BOLD);
-
-                                ImageView commentButton = new ImageView(container.getContext());
-                                commentButton.setId(id);
-                                commentButton.setImageResource(R.drawable.reply_icon);
-                                id++;
+                                String ContentInComment = input.getText().toString().toLowerCase();
+                                if (ContentInComment.indexOf("fuck")  >= 0 || ContentInComment.indexOf("shit") >= 0 || ContentInComment.indexOf("shut up") >= 0 || ContentInComment.indexOf("bullshit") >= 0 || ContentInComment.indexOf("motherfucker") >= 0 || ContentInComment.indexOf("mother fucker") >= 0 || ContentInComment.indexOf("bitch") >= 0 || ContentInComment.indexOf("bull shit") >= 0 || ContentInComment.indexOf("bull shit") >= 0 || ContentInComment.indexOf("cunt") >= 0 || ContentInComment.indexOf("hell") >= 0 || ContentInComment.indexOf("ass") >= 0 || ContentInComment.indexOf("dick") >= 0 || ContentInComment.indexOf("pussy") >= 0){
+                                    input.setText("");
+                                    Toast.makeText(getContext(), "WATCH YOUR LANGUAGE!!!", Toast.LENGTH_SHORT).show();
+                                }else{
+                                    LinearLayout layout = new LinearLayout(container.getContext());
+                                    layout.setOrientation(LinearLayout.VERTICAL);
+                                    layout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
 
 
-                                commentButton.setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View view) {
-                                        ImageView button = (ImageView) view;
-                                        int id = button.getId();
-                                        String trueId = String.valueOf(id);
-                                        Intent intent = new Intent(getActivity(), PostHistory.class);
-                                        intent.putExtra("postId",trueId);
-                                        startActivity(intent);
-                                    }
-                                });
+                                    TextView Question = new TextView(container.getContext());
+                                    Question.setText(input.getText().toString());
+                                    Question.setTextSize(25);
+                                    Question.setGravity(Gravity.CENTER);
+                                    Question.setBackgroundResource(R.drawable.shapeofpostcomment);
+    //                                Question.setLayoutParams(layoutParams);
+                                    layout.addView(Question);
 
-                                layout2.addView(userName);
-                                layout2.addView(commentButton);
-                                layout.addView(layout2);
-                                postArea.addView(layout);
-                                input.setText("");
+                                    LinearLayout layout2 = new LinearLayout(container.getContext());
+                                    layout2.setOrientation(LinearLayout.HORIZONTAL);
+                                    layout2.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+
+                                    TextView userName = new TextView(container.getContext());
+                                    userName.setText(CurrentUser);
+    //                                userName.setTextColor(Integer.parseInt("#9505f5"));
+                                    userName.setTextSize(20);
+                                    userName.setGravity(Gravity.CENTER);
+                                    userName.setTypeface(null, Typeface.BOLD);
+
+                                    ImageView commentButton = new ImageView(container.getContext());
+                                    commentButton.setId(id);
+                                    commentButton.setImageResource(R.drawable.reply_icon);
+                                    id++;
+
+
+                                    commentButton.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View view) {
+                                            ImageView button = (ImageView) view;
+                                            int id = button.getId();
+                                            String trueId = String.valueOf(id);
+                                            Intent intent = new Intent(getActivity(), PostHistory.class);
+                                            intent.putExtra("postId", trueId);
+                                            startActivity(intent);
+                                        }
+                                    });
+
+                                    layout2.addView(userName);
+                                    layout2.addView(commentButton);
+                                    layout.addView(layout2);
+                                    postArea.addView(layout);
+                                    input.setText("");
+                                }
                             }
                         });
             }
