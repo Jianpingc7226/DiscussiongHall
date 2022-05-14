@@ -53,7 +53,7 @@ public class PostHistory extends AppCompatActivity {
         LinearLayout commentArea = findViewById(R.id.commentArea);
         Button homeBtn = findViewById(R.id.homeBtn);
         TextView question = findViewById(R.id.Question);
-        ImageView userComment = findViewById(R.id.confirm);
+        Button userComment = findViewById(R.id.confirm_Comment);
         EditText commentContent = findViewById(R.id.comment);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         Intent intent = getIntent();
@@ -190,7 +190,10 @@ public class PostHistory extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 String ContentInComment = commentContent.getText().toString().toLowerCase();
-                                if (ContentInComment.indexOf("fuck")  >= 0 || ContentInComment.indexOf("shit") >= 0 || ContentInComment.indexOf("shut up") >= 0 || ContentInComment.indexOf("bullshit") >= 0 || ContentInComment.indexOf("motherfucker") >= 0 || ContentInComment.indexOf("mother fucker") >= 0 || ContentInComment.indexOf("bitch") >= 0 || ContentInComment.indexOf("bull shit") >= 0 || ContentInComment.indexOf("bull shit") >= 0 || ContentInComment.indexOf("cunt") >= 0 || ContentInComment.indexOf("hell") >= 0 || ContentInComment.indexOf("ass") >= 0 || ContentInComment.indexOf("dick") >= 0 || ContentInComment.indexOf("pussy") >= 0){
+                                if(ContentInComment.length() == 0){
+                                    commentContent.setText("");
+                                    Toast.makeText(PostHistory.this, "PLEASE POST YOUR THOUGHTS OR QUESTIONS", Toast.LENGTH_SHORT).show();
+                                }else if (ContentInComment.indexOf("fuck")  >= 0 || ContentInComment.indexOf("shit") >= 0 || ContentInComment.indexOf("shut up") >= 0 || ContentInComment.indexOf("bullshit") >= 0 || ContentInComment.indexOf("motherfucker") >= 0 || ContentInComment.indexOf("mother fucker") >= 0 || ContentInComment.indexOf("bitch") >= 0 || ContentInComment.indexOf("bull shit") >= 0 || ContentInComment.indexOf("fat") >= 0 || ContentInComment.indexOf("cunt") >= 0 || ContentInComment.indexOf("hell") >= 0 || ContentInComment.indexOf("ass") >= 0 || ContentInComment.indexOf("dick") >= 0 || ContentInComment.indexOf("pussy") >= 0 || ContentInComment.indexOf("idiot") >= 0 ){
                                     commentContent.setText("");
                                     Toast.makeText(PostHistory.this, "WATCH YOUR LANGUAGE!!!", Toast.LENGTH_SHORT).show();
                                 } else {

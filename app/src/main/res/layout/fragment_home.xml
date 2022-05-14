@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="Create Post" />
+        android:text="Create New Post" />
 
     <TextView
         android:id="@+id/discussingHallTitle"
@@ -46,19 +46,19 @@
         android:layout_centerHorizontal="true"
         android:background="#808080"
         android:gravity="center"
-        android:hint="WRITE YOUR POST"
+        android:hint="WRITE YOUR THOUGHTS"
         android:minHeight="48dp"
         android:textColor="@color/white"
         android:textColorHint="#D3D3D3"
         android:visibility="invisible" />
 
-    <ImageView
-        android:id="@+id/check_mark"
-        android:layout_width="40dp"
+    <Button
+        android:id="@+id/confirm_post_btn"
+        android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_below="@id/input"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/confirm_to_post_icon"
+        android:text="Confirm Post"
         android:visibility="invisible" />
 
     <ScrollView
@@ -66,7 +66,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/createPostBtn"
-        android:layout_below="@id/check_mark">
+        android:layout_below="@id/confirm_post_btn">
 
         <LinearLayout
             android:id="@+id/alan"

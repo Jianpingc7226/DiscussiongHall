@@ -54,20 +54,20 @@
         android:hint="Your Thoughts"
         android:gravity="center"/>
 
-    <ImageView
-        android:id="@+id/confirm"
-        android:layout_width="40sp"
+    <Button
+        android:id="@+id/confirm_Comment"
+        android:layout_width="wrap_content"
         android:layout_height="40sp"
         android:layout_below="@+id/comment"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/check_box" />
+        android:text="Confirm Comment" />
 
     <ScrollView
         android:id="@+id/pastComments"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/homeBtn"
-        android:layout_below="@+id/confirm"
+        android:layout_below="@+id/confirm_Comment"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="12dp"
         tools:ignore="SpeakableTextPresentCheck">
