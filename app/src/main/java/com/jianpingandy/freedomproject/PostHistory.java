@@ -180,10 +180,10 @@ public class PostHistory extends AppCompatActivity {
                 if(ContentInComment.length() == 0){
                     commentContent.setText("");
                     Toast.makeText(PostHistory.this, "PLEASE POST YOUR THOUGHTS OR QUESTIONS", Toast.LENGTH_SHORT).show();
-                }else if (ContentInComment.indexOf("fuck")  >= 0 || ContentInComment.indexOf("shit") >= 0 || ContentInComment.indexOf("shut up") >= 0 || ContentInComment.indexOf("bullshit") >= 0 || ContentInComment.indexOf("motherfucker") >= 0 || ContentInComment.indexOf("mother fucker") >= 0 || ContentInComment.indexOf("bitch") >= 0 || ContentInComment.indexOf("bull shit") >= 0 || ContentInComment.indexOf("fat") >= 0 || ContentInComment.indexOf("cunt") >= 0 || ContentInComment.indexOf("hell") >= 0 || ContentInComment.indexOf("ass") >= 0 || ContentInComment.indexOf("dick") >= 0 || ContentInComment.indexOf("pussy") >= 0 || ContentInComment.indexOf("idiot") >= 0 || ContentInComment.indexOf("gay") >= 0)) {
+                }else if (ContentInComment.indexOf("fuck")  >= 0 || ContentInComment.indexOf("shit") >= 0 || ContentInComment.indexOf("shut up") >= 0 || ContentInComment.indexOf("bullshit") >= 0 || ContentInComment.indexOf("motherfucker") >= 0 || ContentInComment.indexOf("mother fucker") >= 0 || ContentInComment.indexOf("bitch") >= 0 || ContentInComment.indexOf("bull shit") >= 0 || ContentInComment.indexOf("fat") >= 0 || ContentInComment.indexOf("cunt") >= 0 || ContentInComment.indexOf("hell") >= 0 || ContentInComment.indexOf("ass") >= 0 || ContentInComment.indexOf("dick") >= 0 || ContentInComment.indexOf("pussy") >= 0 || ContentInComment.indexOf("idiot") >= 0 || ContentInComment.indexOf("gay") >= 0){
                     commentContent.setText("");
                     Toast.makeText(PostHistory.this, "WATCH YOUR LANGUAGE!!!", Toast.LENGTH_SHORT).show();
-                } else {
+                }else{
 
 
                     Map<String, Object> Comment = new HashMap<>();
