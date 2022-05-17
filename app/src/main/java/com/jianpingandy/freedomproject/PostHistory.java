@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.media.Image;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -175,28 +176,31 @@ public class PostHistory extends AppCompatActivity {
         userComment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Map<String,Object> Comment = new HashMap<>();
-                Comment.put("Comment",commentContent.getText().toString());
-
-                Comment.put("like",0);
-                if(hasSchool){
-                    Comment.put("userCommented",CurrentUser+" from " + CurrentUserSchool);
+                String ContentInComment = commentContent.getText().toString().toLowerCase();
+                if(ContentInComment.length() == 0){
+                    commentContent.setText("");
+                    Toast.makeText(PostHistory.this, "PLEASE POST YOUR THOUGHTS OR QUESTIONS", Toast.LENGTH_SHORT).show();
+                }else if (ContentInComment.indexOf("fuck")  >= 0 || ContentInComment.indexOf("shit") >= 0 || ContentInComment.indexOf("shut up") >= 0 || ContentInComment.indexOf("bullshit") >= 0 || ContentInComment.indexOf("motherfucker") >= 0 || ContentInComment.indexOf("mother fucker") >= 0 || ContentInComment.indexOf("bitch") >= 0 || ContentInComment.indexOf("bull shit") >= 0 || ContentInComment.indexOf("fat") >= 0 || ContentInComment.indexOf("cunt") >= 0 || ContentInComment.indexOf("hell") >= 0 || ContentInComment.indexOf("ass") >= 0 || ContentInComment.indexOf("dick") >= 0 || ContentInComment.indexOf("pussy") >= 0 || ContentInComment.indexOf("idiot") >= 0 ) {
+                    commentContent.setText("");
+                    Toast.makeText(PostHistory.this, "WATCH YOUR LANGUAGE!!!", Toast.LENGTH_SHORT).show();
                 } else {
-                    Comment.put("userCommented",CurrentUser);
-                }
-                db.collection("Post").document(id).collection("Comments").document(String.valueOf(commentId))
-                        .set(Comment)
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                String ContentInComment = commentContent.getText().toString().toLowerCase();
-                                if(ContentInComment.length() == 0){
-                                    commentContent.setText("");
-                                    Toast.makeText(PostHistory.this, "PLEASE POST YOUR THOUGHTS OR QUESTIONS", Toast.LENGTH_SHORT).show();
-                                }else if (ContentInComment.indexOf("fuck")  >= 0 || ContentInComment.indexOf("shit") >= 0 || ContentInComment.indexOf("shut up") >= 0 || ContentInComment.indexOf("bullshit") >= 0 || ContentInComment.indexOf("motherfucker") >= 0 || ContentInComment.indexOf("mother fucker") >= 0 || ContentInComment.indexOf("bitch") >= 0 || ContentInComment.indexOf("bull shit") >= 0 || ContentInComment.indexOf("fat") >= 0 || ContentInComment.indexOf("cunt") >= 0 || ContentInComment.indexOf("hell") >= 0 || ContentInComment.indexOf("ass") >= 0 || ContentInComment.indexOf("dick") >= 0 || ContentInComment.indexOf("pussy") >= 0 || ContentInComment.indexOf("idiot") >= 0 ){
-                                    commentContent.setText("");
-                                    Toast.makeText(PostHistory.this, "WATCH YOUR LANGUAGE!!!", Toast.LENGTH_SHORT).show();
-                                } else {
+
+
+                    Map<String, Object> Comment = new HashMap<>();
+                    Comment.put("Comment", commentContent.getText().toString());
+
+                    Comment.put("like", 0);
+                    if (hasSchool) {
+                        Comment.put("userCommented", CurrentUser + " from " + CurrentUserSchool);
+                    } else {
+                        Comment.put("userCommented", CurrentUser);
+                    }
+                    db.collection("Post").document(id).collection("Comments").document(String.valueOf(commentId))
+                            .set(Comment)
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+
 
                                     LinearLayout layout = new LinearLayout(PostHistory.this);
                                     layout.setOrientation(LinearLayout.VERTICAL);
@@ -207,8 +211,8 @@ public class PostHistory extends AppCompatActivity {
                                     userName.setTextColor(Color.WHITE);
                                     userName.setTextSize(20);
                                     userName.setTypeface(null, Typeface.BOLD);
-                                    if(hasSchool){
-                                        userName.setText(CurrentUser+" from " + CurrentUserSchool);
+                                    if (hasSchool) {
+                                        userName.setText(CurrentUser + " from " + CurrentUserSchool);
                                     } else {
                                         userName.setText(CurrentUser);
                                     }
@@ -218,13 +222,12 @@ public class PostHistory extends AppCompatActivity {
                                     userComment.setBackgroundColor(Color.WHITE);
                                     userComment.setTextColor(Color.BLACK);
                                     userComment.setTextSize(20);
-                                    userComment.setTypeface(null,Typeface.BOLD);
+                                    userComment.setTypeface(null, Typeface.BOLD);
                                     userComment.setText(commentContent.getText().toString());
 
                                     LinearLayout likeslayout = new LinearLayout(PostHistory.this);
                                     likeslayout.setOrientation(LinearLayout.HORIZONTAL);
                                     likeslayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
-
 
 
                                     TextView numberOfLikes = new TextView(PostHistory.this);
@@ -265,9 +268,10 @@ public class PostHistory extends AppCompatActivity {
 
                                     commentId++;
                                     commentContent.setText("");
+
                                 }
-                            }
-                        });
+                            });
+                }
             }
         });
 

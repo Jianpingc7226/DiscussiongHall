@@ -47,12 +47,12 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/Question"
-        android:textColor="#f50213"
-        android:background="#11f5ed"
         android:layout_centerHorizontal="true"
-        android:textSize="20dp"
+        android:background="#11f5ed"
+        android:gravity="center"
         android:hint="Your Thoughts"
-        android:gravity="center"/>
+        android:textColor="#f50213"
+        android:textSize="20dp" />
 
     <Button
         android:id="@+id/confirm_Comment"

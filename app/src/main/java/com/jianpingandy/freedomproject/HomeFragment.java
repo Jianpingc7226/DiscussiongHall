@@ -91,7 +91,7 @@ public class HomeFragment extends Fragment {
 //                                ms.height = android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
                                 TextView Question = new TextView(container.getContext());
                                 Question.setText(document.get("Title").toString());
-                                Question.setTextSize(25);
+                                Question.setTextSize(23);
                                 Question.setGravity(Gravity.CENTER);
                                 Question.setBackgroundResource(R.drawable.shapeofpostcomment);
 //                                Question.setLayoutParams(layoutParams);
@@ -156,23 +156,23 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                Map<String,Object> postData = new HashMap<>();
-                postData.put("Announcer",CurrentUser);
-                postData.put("Title",input.getText().toString());
-                postData.put("id",id);
-                db.collection("Post").document(String.valueOf(id))
-                        .set(postData)
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                String ContentInComment = input.getText().toString().toLowerCase();
-                                if(ContentInComment.length() == 0){
-                                    input.setText("");
-                                    Toast.makeText(getContext(), "PLEASE POST YOUR THOUGHTS OR QUESTIONS", Toast.LENGTH_SHORT).show();
-                                }else if (ContentInComment.indexOf("fuck")  >= 0 || ContentInComment.indexOf("shit") >= 0 || ContentInComment.indexOf("shut up") >= 0 || ContentInComment.indexOf("bitch") >= 0|| ContentInComment.indexOf("fat") >= 0 || ContentInComment.indexOf("cunt") >= 0 || ContentInComment.indexOf("hell") >= 0 || ContentInComment.indexOf("ass") >= 0 || ContentInComment.indexOf("dick") >= 0 || ContentInComment.indexOf("pussy") >= 0 || ContentInComment.indexOf("idiot") >= 0 ){
-                                    input.setText("");
-                                    Toast.makeText(getContext(), "WATCH YOUR LANGUAGE!!!", Toast.LENGTH_SHORT).show();
-                                }else{
+                String ContentInComment = input.getText().toString().toLowerCase();
+                if(ContentInComment.length() == 0){
+                    input.setText("");
+                    Toast.makeText(getContext(), "PLEASE POST YOUR THOUGHTS OR QUESTIONS", Toast.LENGTH_SHORT).show();
+                }else if (ContentInComment.indexOf("fuck")  >= 0 || ContentInComment.indexOf("shit") >= 0 || ContentInComment.indexOf("shut up") >= 0 || ContentInComment.indexOf("bitch") >= 0|| ContentInComment.indexOf("fat") >= 0 || ContentInComment.indexOf("cunt") >= 0 || ContentInComment.indexOf("hell") >= 0 || ContentInComment.indexOf("ass") >= 0 || ContentInComment.indexOf("dick") >= 0 || ContentInComment.indexOf("pussy") >= 0 || ContentInComment.indexOf("idiot") >= 0 ) {
+                    input.setText("");
+                    Toast.makeText(getContext(), "WATCH YOUR LANGUAGE!!!", Toast.LENGTH_SHORT).show();
+                } else {
+                    Map<String, Object> postData = new HashMap<>();
+                    postData.put("Announcer", CurrentUser);
+                    postData.put("Title", input.getText().toString());
+                    postData.put("id", id);
+                    db.collection("Post").document(String.valueOf(id))
+                            .set(postData)
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
                                     LinearLayout layout = new LinearLayout(container.getContext());
                                     layout.setOrientation(LinearLayout.VERTICAL);
                                     layout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
@@ -180,10 +180,10 @@ public class HomeFragment extends Fragment {
 
                                     TextView Question = new TextView(container.getContext());
                                     Question.setText(input.getText().toString());
-                                    Question.setTextSize(25);
+                                    Question.setTextSize(23);
                                     Question.setGravity(Gravity.CENTER);
                                     Question.setBackgroundResource(R.drawable.shapeofpostcomment);
-    //                                Question.setLayoutParams(layoutParams);
+                                    //                                Question.setLayoutParams(layoutParams);
                                     layout.addView(Question);
 
                                     LinearLayout layout2 = new LinearLayout(container.getContext());
@@ -192,7 +192,7 @@ public class HomeFragment extends Fragment {
 
                                     TextView userName = new TextView(container.getContext());
                                     userName.setText(CurrentUser);
-    //                                userName.setTextColor(Integer.parseInt("#9505f5"));
+                                    //                                userName.setTextColor(Integer.parseInt("#9505f5"));
                                     userName.setTextSize(20);
                                     userName.setGravity(Gravity.CENTER);
                                     userName.setTypeface(null, Typeface.BOLD);
@@ -220,9 +220,10 @@ public class HomeFragment extends Fragment {
                                     layout.addView(layout2);
                                     postArea.addView(layout);
                                     input.setText("");
+
                                 }
-                            }
-                        });
+                            });
+                }
             }
         });
 
